@@ -102,7 +102,7 @@ function copyData() {
         });
 }
 
-async function getWeather() {
+function getWeather() {
     const city = document.getElementById("cityInput").value;
     const resultDiv = document.getElementById("result");
 
