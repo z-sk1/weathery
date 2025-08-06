@@ -65,11 +65,12 @@ function updateDisplay(data) {
     // round temp to 1 decimal place
     temp = temp.toFixed(1);
 
-    resultDiv.textContent = `Temperature: ${temp}${unit}
-    💧 Humidity: ${data.humidity}%
-    🌧️ Precipitation: ${data.precipitation} mm
-    💨 Wind Speed: ${data.windSpeed} km/h
-    🌤️ Condition: ${weatherDescriptions[data.weather_code] || "Unknown"}`;
+    resultDiv.innerHTML = `
+    <p>Temperature: ${temp}${unit}</p>
+    <p>💧 Humidity: ${data.humidity}%</p>
+    <p>🌧️ Precipitation: ${data.precipitation} mm</p>
+    <p>💨 Wind Speed: ${data.windSpeed} km/h</p>
+    <p>🌤️ Condition: ${description || "Unknown"}</p>`;
 }
 
 async function getWeather() {
