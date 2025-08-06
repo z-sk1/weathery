@@ -1,7 +1,7 @@
 /* Base layout */
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #2b3e50, #4b6e91);
+  background: linear-gradient(135deg, #2b3e50, #3a5a7a);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,7 +16,7 @@ body {
 h1 {
   font-size: 3rem;
   margin-bottom: 40px;
-  color: #ffffffee;
+  color: #ffffff78;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
