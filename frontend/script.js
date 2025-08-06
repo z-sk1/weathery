@@ -65,11 +65,16 @@ function updateDisplay(data) {
     // round temp to 1 decimal place
     temp = temp.toFixed(1);
 
-    resultDiv.textContent = `Temperature: ${temp}${unit}, Condition: ${description}`;
+    resultDiv.textContent = `Temperature: ${temp}${unit}
+    💧 Humidity: ${data.humidity}%
+    🌧️ Precipitation: ${data.precipitation} mm
+    💨 Wind Speed: ${data.windSpeed} km/h
+    🌤️ Condition: ${weatherDescriptions[data.weather_code] || "Unknown"}`;
 }
 
-function getWeather() {
+async function getWeather() {
     const city = document.getElementById("cityInput").value;
+    const resultDiv = document.getElementById("result");
 
     if (!city) {
         resultDiv.textContent = "Please enter a city name.";
@@ -79,7 +84,10 @@ function getWeather() {
     fetch(`http://localhost:8080/weather?city=${encodeURIComponent(city)}`)
         .then(response => {
             if (!response.ok) {
-                throw new Error("Network connection was not ok");
+                return response.text().then(errorText => {
+                    throw new Error(errorText || "Network connection was not ok")
+                });
+                
             }
             return response.json();
         })
@@ -88,7 +96,11 @@ function getWeather() {
             updateDisplay(data);
         })
         .catch(error => {
-            resultDiv.textContent = "Error" + error.message;
-            console.error("Fetch error:", error);
+            if (error.message.includes("city not found")) {
+                resultDiv.textContent = "City not found. Please try another.";
+            } else {
+                resultDiv.textContent = "Error" + error.message;
+                console.error("Fetch error:", error);
+            }
         });
 } 

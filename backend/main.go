@@ -18,8 +18,11 @@ type GeocodeResponse struct {
 
 type WeatherResponse struct {
 	Current struct {
-		Temperature float64 `json:"temperature_2m"`
-		WeatherCode int     `json:"weathercode"`
+		Temperature   float64 `json:"temperature_2m"`
+		WeatherCode   int     `json:"weathercode"`
+		Humidity      float64 `json:"relative_humidity_2m"`
+		Precipitation float64 `json:"precipitation"`
+		WindSpeed     float64 `json:"windspeed_10m"`
 	} `json:"current"`
 }
 
@@ -59,7 +62,7 @@ func getCoordinates(city string) (float64, float64, error) {
 }
 
 func getWeather(lat, lon float64) (float64, int, error) {
-	url := fmt.Sprintf("https://api.open-meteo.com/v1/forecast?latitude=%.4f&longitude=%.4f&current=temperature_2m,weathercode", lat, lon)
+	url := fmt.Sprintf("https://api.open-meteo.com/v1/forecast?latitude=%f&longitude=%f&current=temperature_2m,weather_code,relative_humidity_2m,precipitation,windspeed_10m", lat, lon)
 
 	resp, err := http.Get(url)
 	if err != nil {
