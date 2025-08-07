@@ -16,3 +16,5 @@ packages/
 # Others
 *.log
 *.vs/
+
+.fake
