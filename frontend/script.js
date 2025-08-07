@@ -113,7 +113,7 @@ function getWeather() {
 
     fetch(`https://weathery-service.onrender.com/weather?city=${encodeURIComponent(city)}`)
         .then(response => {
-            if (!response.ok) {
+            if (!response.ok) { 
                 return response.text().then(errorText => {
                     throw new Error(errorText || "Network connection was not ok")
                 });

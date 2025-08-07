@@ -1,13 +1,34 @@
-﻿# weather-app
-
-weathery is a Weather App made by me!! like my previous project, shrtnd, a url shortener, it's back and frontend have been deployed on Render, a service allowing you to deploy static sites and web services (for free!!) i could have used AWS but i digress
-
-you can visit the site at weathery-5iyj.onrender.com. the reason theres a code after the name is cos this is free and i cant be arsed to buy a custom domain so this is what we have to deal with now
+﻿# 🌤️ weathery
 
 
-also if you needed to know the backend is weathery-service.onrender.com, idk what you'll use that for but thought it would be nice to know
+weathery is a weather app made by me!!
+like my last project, shrtnd, a URL shortener, this one also has both its frontend and backend deployed on Render — a service that lets you host static sites and web services (for free!!).
+i could've used AWS or something but eh
 
+🔗 live site
+👉 weathery-5ijy.onrender.com
+yeah, there's a weird code in the URL — it's a free render domain and i can't be bothered to set up a custom one (or buy one haha), so this is what we’re working with.
 
-im also working on a WinForms desktop client which will be up and running soon, to get it navigate to the folder desktop client>Release>WeatherClient.exe
+⚙️ backend endpoint
+just in case you're curious, the backend lives at:
+weathery-service.onrender.com
+you probably don’t need it sooooooo
 
-if you're unsure you can also open the .sln file with Visual Studio 2022 and build it from there. make sure to select Release instead of Debug, and Any CPU. from there you can also check the C# code
+🖥️ desktop client (Windows)
+to get the windows version of weathery:
+
+head over to the Releases section
+
+download the .zip or .exe file
+
+run the app — no install needed
+
+if you want to build it yourself:
+
+open the .sln file in Visual Studio 2022
+
+set the build config to Release and Any CPU
+
+hit build and find the .exe inside bin/Release
+
+feel free to peek at the C# code too if you're into that sort of thing.
