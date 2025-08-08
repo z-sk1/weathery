@@ -27,6 +27,8 @@ type WeatherResponse struct {
 }
 
 func main() {
+	go setupTray()
+
 	http.Handle("/weather", enableCORS(http.HandlerFunc(weatherHandler)))
 	fmt.Println("Server running on localhost:8080")
 	log.Fatal(http.ListenAndServe(":8080", nil))

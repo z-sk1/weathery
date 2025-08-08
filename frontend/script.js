@@ -111,7 +111,7 @@ function getWeather() {
         return;
     }
 
-    fetch(`https://weathery-service.onrender.com/weather?city=${encodeURIComponent(city)}`)
+    fetch(`http://localhost:8080/weather?city=${encodeURIComponent(city)}`)
         .then(response => {
             if (!response.ok) { 
                 return response.text().then(errorText => {
