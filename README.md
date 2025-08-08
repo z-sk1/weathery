@@ -39,6 +39,9 @@ Since the backend lives online there will be a big delay if you use the app a lo
 2. Next, run **`WeatheryBackend.exe`**.
 3. You're done! You can also click on hidden icons on the task bar and find the weathery server icon and show and hide the console. The console will show you debug info and other stuff if you wanted to take a look.
 
+> Additionally, if you want the source code for the local backend version of **weathery**, i have created a separate branch for it so you can download the source code and tinker with it!
+
 ## Contribution
 feel free to peek at the C# code and tinker and send a PR too if you're into that sort of thing.
+
 
