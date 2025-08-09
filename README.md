@@ -17,11 +17,9 @@ you probably don’t need it sooooooo
 ## 🖥️ desktop client (Windows)
 ### to get the windows version of weathery:
 
-head over to the Releases section
-
-download the .zip or .exe file
-
-run the app — no install needed
+ 1. head over to the Releases section
+ 2. download the .zip or .exe file
+ 3. run the app — no install needed
 
 ### if you want to build it yourself:
 
@@ -39,6 +37,9 @@ Since the backend lives online there will be a big delay if you use the app a lo
 2. Next, run **`WeatheryBackend.exe`**.
 3. You're done! You can also click on hidden icons on the task bar and find the weathery server icon and show and hide the console. The console will show you debug info and other stuff if you wanted to take a look.
 
+   > Also by the way I took the liberty of modifying the frontend (website version) to respond to the local backend if you download the source code from the **`local-backend`** branch!
+
 ## Contribution
 feel free to peek at the C# code and tinker and send a PR too if you're into that sort of thing.
+
 
