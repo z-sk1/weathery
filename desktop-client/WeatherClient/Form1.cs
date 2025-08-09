@@ -167,7 +167,7 @@ namespace WeatherClient
             {
                 try
                 {
-                    string url = $"http://localhost:8080/weather?city={Uri.EscapeDataString(city)}";
+                    string url = $"https://weathery-service.onrender.com/weather?city={Uri.EscapeDataString(city)}";
                     string response = await client.GetStringAsync(url);
                     WeatherData data = JsonSerializer.Deserialize<WeatherData>(response);
                     lastWeatherData = data;
