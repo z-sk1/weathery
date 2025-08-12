@@ -2,6 +2,12 @@
 bin/
 obj/
 
+# local-backend branch specific
+backend/tray.go
+backend/attach.go
+backend/console.go
+backend/assets
+
 # NuGet Packages folder
 packages/
 
