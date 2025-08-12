@@ -14,6 +14,16 @@ just in case you're curious, the backend lives at:
 weathery-service.onrender.com
 you probably don’t need it sooooooo
 
+## mobile app (android and ios)
+### to get the mobile app:
+
+1. head over to releases
+2. download the android .zip file
+3. and then run the .apk file
+
+### if you're on iOS then:
+sorry, you're out of luck. but look out. things are happening behind the scenes.
+
 ## 🖥️ desktop client (Windows)
 ### to get the windows version of weathery:
 
@@ -41,5 +51,6 @@ Since the backend lives online there will be a big delay if you use the app a lo
 
 ## Contribution
 feel free to peek at the C# code and tinker and send a PR too if you're into that sort of thing.
+
 
 
