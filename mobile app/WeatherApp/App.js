@@ -1,6 +1,6 @@
-import { requireOptionalNativeModule } from 'expo';
+import * as Clipboard from 'expo-clipboard';
 import React, { useState } from 'react';
-import { View, StyleSheet, Text, TextInput, Button, TouchableOpacity, Switch } from 'react-native';
+import { View, StyleSheet, Text, TextInput, Button, TouchableOpacity, Switch, Alert } from 'react-native';
 
 export default function App() {
   const [text, setText] = useState('');
@@ -10,7 +10,9 @@ export default function App() {
   const [lastWeatherData, setLastWeatherData] = useState(null);
   const [displayData, setDisplayData] = useState(null);
   const [isFocused, setFocused] = useState(false);
+  const [copyIsPressed, copySetPressed] = useState(false);
   const [isPressed, setPressed] = useState(false);
+  const [copyBtnText, setCopyBtnText] = useState("Copy");
 
   const weatherDescriptions = {
     0: "Clear sky ☀️",
@@ -91,6 +93,14 @@ export default function App() {
             <Text style = {styles.resultText}>Precipitation: {displayData.precipitation} mm</Text>
             <Text style = {styles.resultText}>Wind Speed: {displayData.windSpeed} km/h</Text>
             <Text style = {styles.resultText}>Condition: {weatherDescriptions[displayData.weather_code]}</Text>
+
+            <TouchableOpacity
+              style = {[styles.copyButton, copyIsPressed && styles.buttonPressed]}
+              onPressIn = {(() => copySetPressed(true))}
+              onPressOut = {(() => copySetPressed(false))}
+              onPress = {copyData}>
+              <Text style = {styles.buttonText}>{copyBtnText}</Text>
+            </TouchableOpacity>
           </>
         ) : (
           <Text style = {styles.resultText}>Result Here</Text>
@@ -126,6 +136,30 @@ export default function App() {
     };
 
     setDisplayData(newDisplayData);
+  }
+
+  async function copyData() {
+    if (!text.trim() || !displayData) {
+      Alert.alert("Nothing to copy", "Please fetch weather data first.");
+      return;
+    }
+
+    const weatherText = `
+    City: ${text}
+    Temperature: ${displayData.temperature}${displayData.unit}
+    Humidity: ${displayData.humidity}%
+    Precipitation: ${displayData.precipitation} mm
+    Wind Speed: ${displayData.windSpeed} km/h
+    Condition: ${weatherDescriptions[displayData.weather_code]}
+      `.trim();  
+      
+    try {
+      await Clipboard.setStringAsync(weatherText);
+      setCopyBtnText("Copied!")
+      setTimeout(() => setCopyBtnText("Copy"), 3000);
+    } catch (err) {
+      Alert.alert("Copy failure:", err.message || "Unknown message");
+    }
   }
 
   async function fetchWeather() {
@@ -222,6 +256,25 @@ const styles = StyleSheet.create({
     justifyContent: 'center',  // add vertical centering
     alignSelf: 'center',
     flexGrow: 1,
+
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 6,
+    elevation: 3,
+  },
+
+  copyButton: {
+    backgroundColor: '#667eb6ff',
+    minWidth: 140,
+    marginTop: 15,
+    paddingVertical: 15,
+    paddingHorizontal: 20, // increase horizontal padding
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',  // add vertical centering
+    alignSelf: 'center',
+    flexGrow: 0,
 
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },

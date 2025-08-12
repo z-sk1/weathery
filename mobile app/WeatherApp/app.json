@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "WeatherApp",
+    "name": "weathery",
     "slug": "WeatherApp",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -9,22 +9,32 @@
     "newArchEnabled": true,
     "jsEngine": "jsc",
     "splash": {
-      "image": "./assets/splash-icon.png",
+      "image": "./assets/icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.zsk.WeatherApp",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.zsk.WeatherApp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "268cf532-a6e4-4584-b68e-a8091edc6b72"
+      }
     }
   }
 }
