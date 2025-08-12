@@ -13,6 +13,55 @@ packages/
 # Visual Studio Code files (optional)
 .vscode/
 
+# Node modules
+node_modules/
+
+# Expo files
+.expo/
+.expo-shared/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Android/ios build files
+android/app/build/
+ios/build/
+
+# Misc
+*.DS_Store
+*.env
+.env.*.local
+.vscode/
+.idea/
+
+# Metro Bundler cache
+metro-cache/
+
+# Yarn Integrity file
+.yarn-integrity
+
+# Buck build files
+buck-out/
+
+# React Native packager cache
+react-native-packager-cache-*
+
+# Xcode
+xcuserdata/
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output/
+
+# Gradle files
+.gradle/
+
 # Others
 *.log
 *.vs/
