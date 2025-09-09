@@ -22,7 +22,7 @@ export default function App() {
     45: "Fog 🌫️",
     48: "Depositing rime fog 🌫️❄️",
     51: "Light drizzle 🌦️",
-    53: "Moderate drizzle 🌧️",
+    53: "Moderate drizzle 🌧️", 
     55: "Dense drizzle 🌧️💧",
     56: "Freezing light drizzle 🌧️❄️",
     57: "Freezing dense drizzle 🌧️🧊",
