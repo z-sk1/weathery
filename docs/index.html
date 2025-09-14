@@ -2,12 +2,25 @@
 <html>
     <head>
         <title>weathery</title>
-        <link rel = "stylesheet" href = "style.css">
+        <link rel = "stylesheet" href = "style/style.css">
     </head>
         <meta charset="UTF-8">
 
         <body>
-            <h1>weathery</h1>
+            <header>
+                <h1 class = "typing colored">weathery</h1>
+                <div class = "dropdown">
+                    <button class = "dropbtn">
+                        Websites <span class = "arrow">▼</span>
+                    </button>
+                    <div class = "dropdown-content">
+                        <a href = "https://z-sk1.github.io" target = "_blank">z-sk's corner</a>
+                        <a href = "https://z-sk1.github.io/shrtnd" target = "_blank">shrtnd</a>
+                        <a href = "https://z-sk1.github.io/click-clock" target = "_blank">click clock</a>
+                        <a href = "https://z-sk1.github.io/easy-define" target = "_blank">easy define</a>
+                    </div>
+                </div>
+            </header>
 
             <div class = "input-group">
                 <input type="text" id="cityInput" placeholder="Enter the name of a city... e.g(San Francisco)">
@@ -19,6 +32,10 @@
 
             <div id = "result"></div>
 
-            <script src = "script.js"></script>
+            <script src = "fetch.js"></script>
+            <script src = "scripts/copy.js"></script>
+            <script src = "scripts/updateDisplay.js"></script>
+            <script src = "scripts/onClick.js"></script>
+            <script src = "scripts/typing.js"></script>
         </body> 
 </html>

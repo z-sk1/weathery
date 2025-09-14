@@ -31,12 +31,6 @@ const weatherDescriptions = {
   99: "Thunderstorm with heavy hail ⛈️🌩️🧊"
 };
 
-document.getElementById("cityInput").addEventListener("keydown", function (event) {
-    if (event.key === "Enter") {
-        getWeather();
-    }
-});
-
 document.getElementById("unitToggle").addEventListener("change", () => {
   if (lastWeatherData) {
     updateDisplay(lastWeatherData);
@@ -73,64 +67,3 @@ function updateDisplay(data) {
     <p>🌤️ Condition: ${description || "Unknown"}</p>
     <button onclick = "copyData()" id = "copyBtn">Copy</button>`;
 }
-
-function copyData() {
-    const resultDiv = document.getElementById("result");
-    const copyBtn = document.getElementById("copyBtn");
-    const city = document.getElementById("cityInput").value;
-    let textToCopy = "";
-
-    textToCopy += city;
-
-    for (let node of resultDiv.childNodes) {
-        if (node.nodeType === Node.ELEMENT_NODE && node.tagName === "BUTTON") {
-            continue;
-        }
-
-        if (node.nodeType === Node.TEXT_NODE || node.nodeType === Node.ELEMENT_NODE) {
-            textToCopy += node.textContent;
-        }
-    }
-
-    navigator.clipboard.writeText(textToCopy.trim())
-        .then(() => {
-            copyBtn.innerText = "Copied!";
-            setTimeout(() => {copyBtn.innerText = "Copy"}, 3000);
-        })
-        .catch(err => {
-            alert("Failed to copy! Error: ", err);
-        });
-}
-
-function getWeather() {
-    const city = document.getElementById("cityInput").value;
-    const resultDiv = document.getElementById("result");
-
-    if (!city) {
-        resultDiv.textContent = "Please enter a city name.";
-        return;
-    }
-
-    fetch(`https://weathery-service.onrender.com/weather?city=${encodeURIComponent(city)}`)
-        .then(response => {
-            if (!response.ok) { 
-                return response.text().then(errorText => {
-                    throw new Error(errorText || "Network connection was not ok")
-                });
-                
-            }
-            return response.json();
-        })
-        .then(data => {
-            lastWeatherData = data;
-            updateDisplay(data);
-        })
-        .catch(error => {
-            if (error.message.includes("city not found")) {
-                resultDiv.textContent = "City not found. Please try another.";
-            } else {
-                resultDiv.textContent = "Error" + error.message;
-                console.error("Fetch error:", error);
-            }
-        });
-} 
